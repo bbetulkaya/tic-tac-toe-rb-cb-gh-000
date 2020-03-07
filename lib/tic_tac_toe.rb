@@ -51,7 +51,7 @@ def turn(board)
 display_board(board)
 end
 
-def turn_count
+def turn_count(board)
   count = 0
 board.each do |index|
   if index != " "
@@ -60,3 +60,58 @@ board.each do |index|
 end
   count
 end
+
+def current_player(board)
+  if turn_count(board) % 2 == 0
+    return "X"
+    else
+    return "O"
+  end
+end
+
+def won?(board)
+  win_conditions.each do |win|
+#  returns an array of matching indexes for a win
+if win.all?{|y| board[y] == "X"}
+  return win
+  elsif win.all?{|y| board[y] == "O"}
+    return win
+  end
+end
+return false # returns false for an empty board / a draw
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
