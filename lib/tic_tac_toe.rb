@@ -106,11 +106,10 @@ end
     end
 
 def over?(board)
-  if won(board)==true && draw(board)==true && full(board)==true
-    return true
-  else
-    return false
+  if full?(board) == true
+    return true # returns true for a won game / draw
   end
+    return false # returns false for an in-progress game
 end
 
 def winner (board)
