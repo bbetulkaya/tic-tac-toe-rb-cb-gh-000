@@ -60,4 +60,15 @@ board.each do |index|
 end
   count
 end
-end
+
+
+
+
+
+
+
+
+
+
+
+
