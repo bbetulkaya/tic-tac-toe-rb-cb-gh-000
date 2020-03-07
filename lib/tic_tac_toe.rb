@@ -125,3 +125,27 @@ def winner (board)
     end
   end
 end
+
+def play(board)
+  while !over?(board) && !won?(board) && !draw?(board) # if the game isnt over
+    turn(board) # play another turn
+  end
+
+# if the game is over
+  if won?(board)
+   puts "Congratulations #{winner(board)}!"
+ end
+
+# if its a draw
+ if draw?(board)
+   puts "Cats Game!"
+ end
+
+end
+
+
+
+
+
+
+
