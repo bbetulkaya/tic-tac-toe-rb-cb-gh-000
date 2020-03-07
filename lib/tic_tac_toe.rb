@@ -71,14 +71,14 @@ end
 
 def won?(board)
   win_conditions.each do |win|
-#  returns an array of matching indexes for a win
-if win.all?{|y| board[y] == "X"}
-  return win
-  elsif win.all?{|y| board[y] == "O"}
+  #  returns an array of matching indexes for a win
+  if win.all?{|y| board[y] == "X"}
     return win
+    elsif win.all?{|y| board[y] == "O"}
+      return win
+    end
   end
-end
-return false # returns false for an empty board / a draw
+  return false # returns false for an empty board / a draw
 end
 
 def full?(board)
@@ -92,3 +92,11 @@ def draw?(board)
   return false
  end
 end
+
+
+
+
+
+
+
+
