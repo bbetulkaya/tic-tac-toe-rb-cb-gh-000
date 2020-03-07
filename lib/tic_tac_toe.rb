@@ -70,29 +70,41 @@ def current_player(board)
 end
 
 def won?(board)
-  win_conditions.each do |win|
-  #  returns an array of matching indexes for a win
-  if win.all?{|y| board[y] == "X"}
-    return win
-    elsif win.all?{|y| board[y] == "O"}
-      return win
+  WIN_COMBINATIONS.each {|win_combo|
+    index_0 = win_combo[0]
+    index_1 = win_combo[1]
+    index_2 = win_combo[2]
+
+    position_1 = board[index_0]
+    position_2 = board[index_1]
+    position_3 = board[index_2]
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combo
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combo
     end
-  end
-  return false # returns false for an empty board / a draw
+  }
+  return false
 end
+
 
 def full?(board)
   board.all? {|index| index == "X" || index == "O"}
 end
 
 def draw?(board)
-  if !won?(board) && full?(board)
-    return true
-  else
-    return false
-  end
+  # true if no winner and board is full
+  !(won?(board)) && full?(board)
 end
 
+    def over?(board)
+      if full?(board) == true
+        return true # returns true for a won game / draw
+      end
+      return false # returns false for an in-progress game
+    end
+    
 def over?(board)
   if won(board)==true || draw(board)==true || full(board)==true
     return true
