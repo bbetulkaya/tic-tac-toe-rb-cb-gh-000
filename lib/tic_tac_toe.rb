@@ -20,10 +20,8 @@ puts "#{lines}"
 puts " #{board[6]} #{separator} #{board[7]} #{separator} #{board[8]} "
 end
 
-def input_to_index(index)
-  index.to_i
-  index-=1
-
+def input_to_index(input)
+  input.to_i-1
 end
 
 def move(board,position,token)
@@ -32,20 +30,15 @@ end
 def position_taken?(board,index)
   if board[index]==""||board[index]==" "||board[index]== nil
     return false
-
   else
     true
-
   end
-
 end
 
 def valid_move?(board,index)
-  if position_taken(board,index)==false && index.between?(0,8)==true
+  if (position_taken(board,index)==false) && (index.between?(0,8)==true)
     true
-
   else
     false
-
   end
 end
